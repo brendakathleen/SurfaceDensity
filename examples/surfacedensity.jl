@@ -11,17 +11,13 @@ mysim = mysim = M3GTools.init(psf="../files/water_pt110.psf",
 
 oxygens = M3GTools.select(mysim, "oxygen")
 
-coord = gencoord(mysim, oxygens, 28.1, 5.66) #5.66 é a distancia necessária para englobar a bicamada
+coord = gencoord(mysim, oxygens, 28.1, 4.2) #4.2 é a distancia necessária para englobar os átomos de oxigênio da primeira camada
 
 contagem = surfdensity(coord, 90, 90, 1.)
 
 contagem = contagem ./ 5 #média de frames
 
-contagem = contagem ./ 5.66 #quantidade de átomos por Å³
-
-#open("surfsendity_e7_80_pt110_s1_fl","w") do io
-#writedlm(io, contagem)
-#end
+contagem = contagem ./ 4.2 #quantidade de átomos por Å³
 
 x = collect(0:90)
 y = collect(0:90)
